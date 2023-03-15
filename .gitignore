@@ -3,3 +3,4 @@
 .venv/
 .azure
 __pycache__/
+.coverage
