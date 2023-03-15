@@ -4,6 +4,7 @@ from unittest import mock
 import pytest
 from gunicorn.app.wsgiapp import run
 
+
 def test_config_imports():
     argv = [
         "gunicorn",
