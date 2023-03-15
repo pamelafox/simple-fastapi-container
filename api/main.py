@@ -6,6 +6,7 @@ from .data import names
 
 app = fastapi.FastAPI()
 
+
 @app.get("/generate_name")
 async def generate_name(starts_with: str = None):
     name_choices = names
