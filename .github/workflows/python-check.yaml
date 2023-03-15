@@ -32,3 +32,5 @@ jobs:
           run: black . --check --verbose
         - name: Run Pytest tests
           run: pytest
+        - name: Check gunicorn config
+          run: gunicorn --check-config api.main:app

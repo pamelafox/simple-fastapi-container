@@ -32,7 +32,7 @@ If you're not using one of those options for opening the project, then you'll ne
 1. Run the local server:
 
     ```shell
-    uvicorn api.main:app
+    uvicorn api.main:app --port 3100 --reload
     ```
 
 3. Click 'http://127.0.0.1:8000' in the terminal, which should open a new tab in the browser.
@@ -53,7 +53,7 @@ You need to either have Docker Desktop installed or have this open in Github Cod
 2. Run the image:
 
     ```
-    docker run --publish 5000:5000 fastapi-app
+    docker run --publish 3100:3100 fastapi-app
     ```
 
 ### Deployment

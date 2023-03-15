@@ -18,7 +18,7 @@ module app 'core/host/container-app.bicep' = {
     containerRegistryName: containerRegistryName
     imageName: !empty(imageName) ? imageName : 'nginx:latest'
     keyVaultName: keyVault.name
-    targetPort: 5000
+    targetPort: 3100
   }
 }
 
