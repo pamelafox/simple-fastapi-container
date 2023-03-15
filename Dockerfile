@@ -4,10 +4,10 @@ WORKDIR /code
 
 COPY requirements.txt .
 
-RUN pip3 install -r requirements.txt
+RUN pip install --no-cache-dir --upgrade -r requirements.txt
 
 COPY . .
 
-EXPOSE 5000
+EXPOSE 80
 
-ENTRYPOINT ["gunicorn", "-c", "gunicorn.conf.py", "app:app"]
+CMD ["uvicorn", "api.main:app", "--host", "0.0.0.0", "--port", "80", "--proxy-headers"]

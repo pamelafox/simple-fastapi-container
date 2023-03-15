@@ -57,7 +57,7 @@ module api 'api.bicep' = {
   name: 'api'
   scope: resourceGroup
   params: {
-    name: '${take(prefix,19)}-containerapp'
+    name: replace('${take(prefix,19)}-containerapp', '--', '-')
     location: location
     imageName: apiImageName
     containerAppsEnvironmentName: containerApps.outputs.environmentName

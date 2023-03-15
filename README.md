@@ -1,10 +1,9 @@
-This repository includes a simple Python Flask API with a single route that returns JSON.
+This repository includes a simple Python FastAPI app with a single route that returns JSON.
 You can use this project as a starting point for your own APIs.
 
 The repository is designed for use with [Docker containers](https://www.docker.com/), both for local development and deployment, and includes infrastructure files for deployment to [Azure Container Apps](https://learn.microsoft.com/azure/container-apps/overview). 🐳
 
-The code is organized using [Flask Blueprints](https://flask.palletsprojects.com/en/2.2.x/blueprints/),
-tested with [pytest](https://docs.pytest.org/en/7.2.x/),
+The code istested with [pytest](https://docs.pytest.org/en/7.2.x/),
 linted with [ruff](https://github.com/charliermarsh/ruff), and formatted with [black](https://black.readthedocs.io/en/stable/).
 Code quality issues are all checked with both [pre-commit](https://pre-commit.com/) and Github actions.
 
@@ -33,10 +32,10 @@ If you're not using one of those options for opening the project, then you'll ne
 1. Run the local server:
 
     ```shell
-    python3 -m flask --debug run
+    uvicorn api.main:app
     ```
 
-3. Click 'http://127.0.0.1:5000' in the terminal, which should open a new tab in the browser.
+3. Click 'http://127.0.0.1:8000' in the terminal, which should open a new tab in the browser.
 
 4. Try the API at '/generate_name' and try passing in a parameter at the end of the URL, like '/generate_name?start_with=N'.
 
@@ -48,13 +47,13 @@ You need to either have Docker Desktop installed or have this open in Github Cod
 1. Build the image:
 
     ```
-    docker build --tag flask-app .
+    docker build --tag fastapi-app .
     ```
 
 2. Run the image:
 
     ```
-    docker run --publish 5000:5000 flask-app
+    docker run --publish 5000:5000 fastapi-app
     ```
 
 ### Deployment
@@ -75,7 +74,7 @@ Steps for deployment:
     azd up
     ```
 
-    It will prompt you to login and to provide a name (like "flask-app") and location (like "eastus"). Then it will provision the resources in your account and deploy the latest code. If you get an error with deployment, changing the location (like to "centralus") can help, as there are availability constraints for some of the resources.
+    It will prompt you to login and to provide a name (like "fastapi-app") and location (like "eastus"). Then it will provision the resources in your account and deploy the latest code. If you get an error with deployment, changing the location (like to "centralus") can help, as there are availability constraints for some of the resources.
 
 4. When `azd` has finished deploying, you'll see an endpoint URI in the command output. Visit that URI, and you should see the API output! 🎉
 

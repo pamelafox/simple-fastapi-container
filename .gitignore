@@ -1,4 +1,5 @@
-
+.git*
+**/*.pyc
+.venv/
 .azure
-
 __pycache__/

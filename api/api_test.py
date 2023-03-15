@@ -1,26 +1,27 @@
 import random
 
-from . import create_app
+from fastapi.testclient import TestClient
 
-app = create_app()
+from .main import app
 
+client = TestClient(app)
 
 def test_generate_name():
+    # create fastapi test client
     random.seed(1)
-    response = app.test_client().get("/generate_name")
+    response = client.get("/generate_name")
     assert response.status_code == 200
-    assert response.get_json()["name"] == "Belton"
-
+    assert response.json()["name"] == "Belton"
 
 def test_generate_name_params():
     random.seed(1)
-    response = app.test_client().get("/generate_name?starts_with=n")
+    response = client.get("/generate_name?starts_with=n")
     assert response.status_code == 200
-    assert response.get_json()["name"] == "Nancy"
+    assert response.json()["name"] == "Nancy"
 
 
 def test_generate_name_params_upper():
     random.seed(1)
-    response = app.test_client().get("/generate_name?starts_with=NE")
+    response = client.get("/generate_name?starts_with=NE")
     assert response.status_code == 200
-    assert response.get_json()["name"] == "Newell"
+    assert response.json()["name"] == "Newell"
