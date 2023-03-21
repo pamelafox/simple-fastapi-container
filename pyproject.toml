@@ -1,15 +1,21 @@
 [tool.black]
 line-length = 120
-target-version = ['py311']
+target-version = ["py311"]
+src = ["src"]
 
 [tool.ruff]
-select = ["E", "F", "I", "UP"]
-target-version = "py311"
 line-length = 120
+target-version = "py311"
+select = ["E", "F", "I", "UP"]
 
 [tool.pytest.ini_options]
-addopts = "-ra --cov --cov-fail-under=100"
+addopts = "-ra --cov=src"
 testpaths = [
-    "api/",
-    "gunicorn_test.py"
+    "src/api/",
+    "src/gunicorn_test.py"
 ]
+pythonpath = ["src"]
+
+[tool.coverage.report]
+show_missing = true
+fail_under = 100

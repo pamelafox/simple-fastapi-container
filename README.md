@@ -32,7 +32,7 @@ If you're not using one of those options for opening the project, then you'll ne
 1. Run the local server:
 
     ```shell
-    uvicorn api.main:app --port 3100 --reload
+    uvicorn src.api.main:app --port 3100 --reload
     ```
 
 3. Click 'http://127.0.0.1:8000' in the terminal, which should open a new tab in the browser.
@@ -42,7 +42,8 @@ If you're not using one of those options for opening the project, then you'll ne
 ### Local development with Docker
 
 You can also run this app with Docker, thanks to the `Dockerfile`.
-You need to either have Docker Desktop installed or have this open in Github Codespaces for these commands to work.
+
+You need to either have Docker Desktop installed or have this open in Github Codespaces for these commands to work. ⚠️ If you're on an Apple M1/M2, you won't be able to run `docker` commands inside a Dev Container; either use Codespaces or do not open the Dev Container.
 
 1. Build the image:
 
