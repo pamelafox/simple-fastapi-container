@@ -9,7 +9,7 @@ target-version = "py311"
 select = ["E", "F", "I", "UP"]
 
 [tool.pytest.ini_options]
-addopts = "-ra --cov"
+addopts = "-ra --cov=src"
 testpaths = [
     "src/api/",
     "src/gunicorn_test.py"
