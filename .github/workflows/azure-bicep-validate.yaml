@@ -20,15 +20,12 @@ jobs:
       - name: Azure CLI script
         uses: azure/CLI@v1
         with:
-          inlineScript: az config set bicep.use_binary_from_path=false && az bicep build -f infra/main.bicep
+          inlineScript: az config set bicep.use_binary_from_path=false && az bicep build -f infra/main.bicep --stdout
 
       - name: Run Microsoft Security DevOps Analysis
         uses: microsoft/security-devops-action@preview
         env:
           GDN_TEMPLATEANALYZER_VERBOSE: 1
-          GDN_TEMPLATEANALYZER_ANALYZEDIRECTORY: ""
-          GDN_TEMPLATEANALYZER_ANALYZETEMPLATE: "infra/main.json"
-          GDN_TEMPLATEANALYZER_PARAMETERSFILEPATH: "infra/main.parameters.json"
         id: msdo
         with:
           tools: templateanalyzer
