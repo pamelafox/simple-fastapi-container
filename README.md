@@ -35,7 +35,7 @@ If you're not using one of those options for opening the project, then you'll ne
     uvicorn src.api.main:app --port 3100 --reload
     ```
 
-3. Click 'http://127.0.0.1:8000' in the terminal, which should open a new tab in the browser.
+3. Click 'http://127.0.0.1:3100' in the terminal, which should open a new tab in the browser.
 
 4. Try the API at '/generate_name' and try passing in a parameter at the end of the URL, like '/generate_name?start_with=N'.
 
@@ -48,7 +48,7 @@ You need to either have Docker Desktop installed or have this open in Github Cod
 1. Build the image:
 
     ```
-    docker build --tag fastapi-app .
+    docker build --tag fastapi-app ./src
     ```
 
 2. Run the image:
@@ -69,13 +69,11 @@ Steps for deployment:
 
 1. Sign up for a [free Azure account](https://azure.microsoft.com/free/)
 2. Install the [Azure Dev CLI](https://learn.microsoft.com/azure/developer/azure-developer-cli/install-azd). (If you opened this repository in a devcontainer, that part will be done for you.)
-3. Initialize a new `azd` environment:
+3. Login to Azure:
 
     ```shell
-    azd init
+    azd auth login
     ```
-
-    It will prompt you to provide a name (like "fastapi-app") that will later be used in the name of the deployed resources.
 
 4. Provision and deploy all the resources:
 
@@ -83,7 +81,7 @@ Steps for deployment:
     azd up
     ```
 
-    It will prompt you to login, pick a subscription, and provide a location (like "eastus"). Then it will provision the resources in your account and deploy the latest code.
+    It will prompt you to provide an `azd` environment name (like "fastapi-app"), select a subscription from your Azure account, and select a location (like "eastus"). Then it will provision the resources in your account and deploy the latest code.
 
 4. When `azd` has finished deploying, you'll see an endpoint URI in the command output. Visit that URI, and you should see the API output! 🎉
 
