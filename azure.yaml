@@ -5,6 +5,5 @@ name: simple-fastapi-container-app
 services:
   api:
     project: ./src
-    module: api
     language: py
     host: containerapp
