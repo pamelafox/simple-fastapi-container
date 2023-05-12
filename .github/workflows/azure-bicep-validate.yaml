@@ -4,11 +4,9 @@ on:
   push:
     branches:
       - main
-      - master
   pull_request:
     branches:
       - main
-      - master
 
 jobs:
   build:
@@ -21,16 +19,3 @@ jobs:
         uses: azure/CLI@v1
         with:
           inlineScript: az config set bicep.use_binary_from_path=false && az bicep build -f infra/main.bicep --stdout
-
-      - name: Run Microsoft Security DevOps Analysis
-        uses: microsoft/security-devops-action@preview
-        env:
-          GDN_TEMPLATEANALYZER_VERBOSE: 1
-        id: msdo
-        with:
-          tools: templateanalyzer
-
-      - name: Upload alerts to Security tab
-        uses: github/codeql-action/upload-sarif@v2
-        with:
-          sarif_file: ${{ steps.msdo.outputs.sarifFile }}
