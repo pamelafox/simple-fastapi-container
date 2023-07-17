@@ -1,18 +1,12 @@
-// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
-// https://github.com/microsoft/vscode-dev-containers/tree/v0.245.0/containers/python-3
+// For format details, see https://aka.ms/devcontainer.json.
 {
 	"name": "simple-fastapi-container",
-	"build": {
-		"dockerfile": "Dockerfile",
-		"args": {
-			"IMAGE": "python:3.11"
-		},
-		"context": ".."
-	},
+	"image": "mcr.microsoft.com/devcontainers/python:3.11-bullseye",
 
 	// See https://containers.dev/implementors/features/
 	"features": {
-		"ghcr.io/devcontainers/features/docker-in-docker:2": {}
+		"ghcr.io/devcontainers/features/docker-in-docker:2": {},
+		"ghcr.io/azure/azure-dev/azd:latest": {}
     },
 
 	// Configure tool-specific properties.
