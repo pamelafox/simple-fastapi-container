@@ -37,7 +37,7 @@ If you're not using one of those options for opening the project, then you'll ne
 
 3. Click 'http://127.0.0.1:3100' in the terminal, which should open a new tab in the browser.
 
-4. Try the API at '/generate_name' and try passing in a parameter at the end of the URL, like '/generate_name?start_with=N'.
+4. Try the API at '/generate_name' and try passing in a parameter at the end of the URL, like '/generate_name?starts_with=N'.
 
 ### Local development with Docker
 
