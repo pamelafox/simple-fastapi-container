@@ -1,3 +1,5 @@
+# Simple FastAPI container
+
 This repository includes a simple Python FastAPI app with a single route that returns JSON.
 You can use this project as a starting point for your own APIs.
 
@@ -32,12 +34,12 @@ If you're not using one of those options for opening the project, then you'll ne
 1. Run the local server:
 
     ```shell
-    uvicorn src.api.main:app --port 3100 --reload
+    fastapi dev src/api/main.py
     ```
 
-3. Click 'http://127.0.0.1:3100' in the terminal, which should open a new tab in the browser.
+2. Click 'http://127.0.0.1:8000' in the terminal, which should open a new tab in the browser.
 
-4. Try the API at '/generate_name' and try passing in a parameter at the end of the URL, like '/generate_name?starts_with=N'.
+3. Try the API at '/generate_name' and try passing in a parameter at the end of the URL, like '/generate_name?starts_with=N'.
 
 ### Local development with Docker
 
@@ -47,13 +49,13 @@ You need to either have Docker Desktop installed or have this open in Github Cod
 
 1. Build the image:
 
-    ```
+    ```shell
     docker build --tag fastapi-app ./src
     ```
 
 2. Run the image:
 
-    ```
+    ```shell
     docker run --publish 3100:3100 fastapi-app
     ```
 
@@ -80,6 +82,7 @@ Steps for deployment:
     ```shell
     azd up
     ```
+
     It will prompt you to provide an `azd` environment name (like "fastapi-app"), select a subscription from your Azure account, and select a location (like "eastus"). Then it will provision the resources in your account and deploy the latest code. If you get an error with deployment, changing the location can help, as there may be availability constraints for some of the resources.
 
 5. When `azd` has finished deploying, you'll see an endpoint URI in the command output. Visit that URI, and you should see the API output! 🎉

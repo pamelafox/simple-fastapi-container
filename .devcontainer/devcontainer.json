@@ -39,7 +39,7 @@
 	},
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	"forwardPorts": [3100],
+	"forwardPorts": [3100, 8000],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
 	"postCreateCommand": "python3 -m pip install -r requirements-dev.txt",
