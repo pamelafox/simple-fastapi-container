@@ -1,5 +1,4 @@
 -r src/requirements.txt
-fastapi[all]
 black
 ruff
 pytest
