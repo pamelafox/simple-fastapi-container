@@ -6,13 +6,16 @@ src = ["src"]
 [tool.ruff]
 line-length = 120
 target-version = "py311"
+
+[tool.ruff.lint]
 select = ["E", "F", "I", "UP"]
 
 [tool.pytest.ini_options]
 addopts = "-ra --cov=src"
 testpaths = [
     "src/api/",
-    "src/gunicorn_test.py"
+    "src/gunicorn_test.py",
+    "src/test_dependencies.py"
 ]
 pythonpath = ["src"]
 

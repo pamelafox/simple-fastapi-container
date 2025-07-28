@@ -22,6 +22,13 @@ If you're not using one of those options for opening the project, then you'll ne
     ```shell
     python3 -m pip install -r requirements-dev.txt
     ```
+    
+    **Note:** If you encounter dependency conflicts (particularly with pandas/numpy), use the provided installation script:
+    
+    ```shell
+    ./install.sh
+    pip install -r requirements-dev.txt
+    ```
 
 3. Install the pre-commit hooks:
 
