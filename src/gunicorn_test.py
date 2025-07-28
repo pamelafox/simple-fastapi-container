@@ -2,7 +2,7 @@ import sys
 from unittest import mock
 
 import pytest
-from gunicorn.app.wsgiapp import run
+from gunicorn.app.wsgiapp import WSGIApplication
 
 
 def test_config_imports():
@@ -10,6 +10,7 @@ def test_config_imports():
 
     with mock.patch.object(sys, "argv", argv):
         with pytest.raises(SystemExit) as excinfo:
-            run()
+            app = WSGIApplication()
+            app.run()
 
     assert excinfo.value.args[0] == 0
