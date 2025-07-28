@@ -12,7 +12,8 @@ select = ["E", "F", "I", "UP"]
 addopts = "-ra --cov=src"
 testpaths = [
     "src/api/",
-    "src/gunicorn_test.py"
+    "src/gunicorn_test.py",
+    "src/test_dependencies.py"
 ]
 pythonpath = ["src"]
 
